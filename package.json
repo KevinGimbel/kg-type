@@ -1,0 +1,16 @@
+{
+  "name": "kg-type",
+  "version": "1.0.0",
+  "description": "Web Component to write out text letter by letter",
+  "main": "kg-type.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "npx http-server -p 0 -c-1"
+  },
+  "keywords": [
+    "web-component",
+    "html"
+  ],
+  "author": "Kevin Gimbel <kevin@gimbel.dev>",
+  "license": "MIT"
+}

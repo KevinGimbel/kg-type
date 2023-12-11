@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>kg-type sample page</title>
+    <style type="text/css">
+        body {
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+        }
+
+        hr {
+            border: none;
+            height: .125em;
+            margin: 0 auto;
+            background: #000;
+        }
+
+        details {
+            margin-top: 1rem;
+        }
+
+        .single-example {
+            margin: 1rem 0;
+            border-top: .125em solid #000;
+            background: #f1f1f1;
+            padding: 1rem;
+        }
+
+        .single-example p {
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        pre {
+            background: #ddd;
+            border-radius: 3px;
+            padding: 1rem;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1><code>kg-type</code> Web Component Demo</h1>
+        <p>A Web-Component to write out words letter by letter.</p>
+
+        <h2>Features</h2>
+        <ul>
+            <li>Write word letter by letter</li>
+            <li>Remove word letter by letter</li>
+            <li>Easily customizable with CSS Custom Properties (aka CSS Variables)</li>
+            <li>Adopts to surrounding CSS because Web Components are awesome</li>
+            <li>No Framework - just JavaScript!</li>
+        </ul>
+
+        <h3>CSS Custom Properties</h3>
+        <p>The following Custom Properties can be set to change the appearance of the component.</p>
+        <pre><code>    display: var(--kg-type-display, inline-block);
+    color: var(--kg-type-color, #000);
+    font-size: var(--kg-type-fontsize, 1rem);
+</code></pre>
+    </header>
+
+    <hr>
+
+    <section id="demo">
+        <h2>Examples</h2>
+        <div class="single-example">
+            <p>One word:</p>
+            <kg-type words="Hello" repeat="false"></kg-type>
+
+            <details>
+                <summary>Code</summary>
+                <pre>
+                    <code>
+&lt;kg-type words="Hello">&lt;/kg-type>
+                    </code>
+                </pre>
+            </details>
+        </div>
+
+        <div class="single-example">
+            <p>Multiple words, type each, clear whole word after:</p>
+            <kg-type words="Hello, World"></kg-type>
+
+            <details>
+                <summary>Code</summary>
+                <pre>
+                <code>
+&lt;kg-type words="Hello, World">&lt;/kg-type>
+                </code>
+            </pre>
+            </details>
+        </div>
+
+        <div class="single-example">
+            <p>Custom seperator:</p>
+            <kg-type words="Hello, World!;Hello, Web!;Hello, YOU!" seperator=";"></kg-type>
+
+            <details>
+                <summary>Code</summary>
+                <pre>
+                <code>
+&lt;kg-type words="Hello, World!;Hello, Web!;Hello, YOU!" seperator=";">&lt;/kg-type>
+                </code>
+            </pre>
+            </details>
+        </div>
+
+
+
+        <div class="single-example">
+            <p>Custom cursor:</p>
+            <kg-type words="JavaScript,Node,TypeScript,JSX" cursor="|"></kg-type>
+
+            <details>
+                <summary>Code</summary>
+                <pre>
+                <code>
+&lt;kg-type words="JavaScript,Node,TypeScript,JSX" cursor="|">&lt;/kg-type>
+                </code>
+            </pre>
+            </details>
+        </div>
+
+
+
+        <div class="single-example">
+            <p>Multiple words, shuffle words:</p>
+            <kg-type words="Python, JavaScript, Java, HTML/CSS, JavaScript, Rust, Go, Swift, Shell Scripting, PHP"
+                shuffle="true"></kg-type>
+
+            <details>
+                <summary>Code</summary>
+                <pre>
+                    <code>
+&lt;kg-type words="Python, JavaScript, Java, HTML/CSS, JavaScript, Rust, Go, Swift, Shell Scripting, PHP" shuffle="true">&lt;/kg-type>
+                    </code>
+                </pre>
+            </details>
+        </div>
+
+        <div class="single-example">
+            <p>Change font by changing font of wrapper:</p>
+            <div style="font-family: 'Times New Roman', Times, serif; --kg-type-fontsize: 2rem;">
+                <kg-type words="Hello, World"></kg-type>
+            </div>
+
+            <details>
+                <summary>Code</summary>
+                <pre>
+                <code>
+&ltdiv style="font-family: 'Times New Roman', Times, serif; --kg-type-fontsize: 2rem;">
+    &lt;kg-type words="Hello, World">&lt;/kg-type>
+&lt;/div>
+                </code>
+            </pre>
+            </details>
+        </div>
+
+        <div class="single-example">
+            <p>Customize color and size with CSS:</p>
+            <kg-type style="--kg-type-fontsize: 10rem; --kg-type-display: block; --kg-type-color: blue;"
+                words="Hello, World!; Hello, Web!" seperator=";"></kg-type>
+
+            <details>
+                <summary>Code</summary>
+                <pre>
+                    <code>
+&lt;kg-type style="--kg-type-fontsize: 10rem; --kg-type-display: block; --kg-type-color: blue;" words="Hello, World!; Hello, Web!" seperator=";">&lt;/kg-type>
+                    </code>
+                </pre>
+            </details>
+        </div>
+
+        <div class="single-example">
+            <p>Shuffle words and choose a random word each time the component loads:</p>
+            <kg-type style="--kg-type-color: red;"
+                words="Python, JavaScript, Java, HTML/CSS, JavaScript, Rust, Go, Swift, Shell Scripting, PHP"
+                shuffle="true" clear-interval="2000" type-interval="300"></kg-type>
+
+            <details>
+                <summary>Code</summary>
+                <pre>
+                    <code>
+&lt;kg-type words="Python, JavaScript, Java, HTML/CSS, JavaScript, Rust, Go, Swift, Shell Scripting, PHP" shuffle="true">&lt;/kg-type>
+                    </code>
+                </pre>
+            </details>
+        </div>
+
+        <div class="single-example">
+            <p>Delete word letter-by-letter after writing:</p>
+            <kg-type words="Python, JavaScript, Java, HTML/CSS, JavaScript, Rust, Go, Swift, Shell Scripting, PHP"
+                clear-interval="2000" delete-reverse="true" type-interval="100"></kg-type>
+
+            <details>
+                <summary>Code</summary>
+                <pre>
+                    <code>
+&lt;kg-type words="Python, JavaScript, Java, HTML/CSS, JavaScript, Rust, Go, Swift, Shell Scripting, PHP" delete-reverse="true">&lt;/kg-type>
+                    </code>
+                </pre>
+            </details>
+        </div>
+    </section>
+</body>
+<script src="kg-type.js"></script>
+
+</html>
