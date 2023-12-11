@@ -4,6 +4,7 @@
 
 - [What's this?](#whats-this)
 - [Usage](#usage)
+  - [Install via npm](#install-via-npm)
   - [Minimal example](#minimal-example)
   - [Options](#options)
   - [Complete example](#complete-example)
@@ -20,6 +21,19 @@
 A pure JavaScript Web Component to write-out text letter by letter, and optionally remove it letter-by-letter. It's quite customizable and comes with sensible defaults.
 
 ## Usage
+
+### Install via npm
+
+```sh
+npm i kg-type
+```
+
+Then load the `kg-type.js` script into your bundle or inlcude it with your website.
+
+In [11ty](https://11ty.dev/) it can be loaded directly from the node_modules directory.
+```html
+<script>{% include "node_modules/kg-type/kg-type.js" %}</script
+```
 
 ### Minimal example
 ```html
