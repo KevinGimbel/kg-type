@@ -57,7 +57,7 @@ Only `words` is required as all other values have defaults.
 ### Complete example
 
 ```html
-Languages I like: <kg-type seperatpr="," cursor="|" words="Rust, JavaScript, Python, Go" clear-interval="3000" type-interval="100" shuffle="true" delete-reverse="true"></kg-type>
+Languages I like: <kg-type seperator="," cursor="|" words="Rust, JavaScript, Python, Go" clear-interval="3000" type-interval="100" shuffle="true" delete-reverse="true"></kg-type>
 ```
 
 ### Custom CSS
